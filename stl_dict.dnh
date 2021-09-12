@@ -69,6 +69,27 @@ function ObjDict_Get(obj, k) {
     }
     return Obj_GetValue(obj, "dnhdict_" ~ ToString(k));
 }
+/* *************************************************************************
+* ObjDict_GetD(obj, k, d) -- Gets the value associated with the specified key
+* Param: obj (obj) - Dict Object to add element to
+* Param: k (free) - Key to get associated value from
+* Param: d (free) - The default fallback value
+* Return: Value associated with the key. If k is not found in the Dict Object, return d
+* Exception: 
+*   - If obj does not refer to a Dict Object
+*
+************************************************************************* */
+function ObjDict_GetD(obj, k, d) {
+    // If the object is not a dict, then raise an exception
+    if (!Obj_IsValueExists(obj, "dnh_dict_def")) {
+        RaiseError("ObjDict_Get: Provided Object ID did not refer to a Dict Object.");
+    }
+    // If the key does not exist, then raise an exception
+    if (!Obj_IsValueExists(obj,  "dnhdict_" ~ ToString(k))) {
+        return d;
+    }
+    return Obj_GetValue(obj, "dnhdict_" ~ ToString(k));
+}
 
 /* *************************************************************************
 * ObjDict_Contains(obj, k) -- Returns true if the Dict Object contains the specified key.
