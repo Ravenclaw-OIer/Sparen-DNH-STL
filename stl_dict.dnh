@@ -50,7 +50,7 @@ function ObjDict_Set(obj, k, v) {
 }
 
 /* *************************************************************************
-* ObjDict_Set(obj, k) -- Gets the value associated with the specified key
+* ObjDict_Get(obj, k) -- Gets the value associated with the specified key
 * Param: obj (obj) - Dict Object to add element to
 * Param: k (free) - Key to get associated value from
 * Return: Value associated with the key
